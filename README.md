@@ -16,10 +16,8 @@ The application runs entirely client-side, storing data in memory, which allows 
 - **Document Type Management**: Define document types with associated attributes
 - **Index Creation**: Design and visualize compound and multi-key indexes
 - **Document Editing**: Rich JSON editor for editing complex nested documents
-- **Value Templates**: Create dynamic value templates with variable substitution
 - **Array Expansion**: Visualize how array fields expand in indexes
 - **Schema Import/Export**: Load and save models to JSON files
-- **OneTable Schema Support**: Import and export OneTable schema format
 
 ## Installation
 
