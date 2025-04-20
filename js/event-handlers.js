@@ -112,9 +112,21 @@ function initializeButtonHandlers() {
  * Initializes modal dialog handlers
  */
 function initializeModalHandlers() {
+    // Document setup modal handlers
+    $("#selectDocumentType").change(function() {
+        handleTypeSelectionChange();
+    });
+
+    $("#btnProcessDocumentSetup").click(function() {
+        processDocumentSetup();
+    });
+    
     // Generic cancel button handler for all modals
     $('.cancel').bind('click', function(evt) {
         closeAllModals();
+        
+        // Refresh the table view to show updated values
+        loadDataModel();
     });
 
     // Create model button handler

@@ -392,7 +392,7 @@ function generate(isCollection, sortKeys) {
                     // For objects and arrays, show expandable content
                     let linkText = "{...}</td>";
                     if (Array.isArray(value)) {
-                        linkText = ">[...]</td>";
+                        linkText = "[...]</td>";
                     }
                     
                     // Add document editor for complex values

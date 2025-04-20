@@ -483,5 +483,34 @@
             </div>
         </div>
     </div>
+
+    <!-- Document Setup Dialog -->
+    <div id="documentSetupModal" class="modal">
+        <div style="width: 500px;" class="modal-content">
+            <h1 style="text-align: center">Document Setup</h1>
+            <p style="text-align: center">Please provide required values for the document</p>
+            
+            <label class="key_label">Document ID (_id):</label>
+            <input id="txtDocumentId" type="text" autocomplete="off">
+            <br>
+            
+            <label class="key_label">Document Type:</label>
+            <select id="selectDocumentType" onchange="handleTypeSelectionChange()">
+                <option selected="true" disabled="disabled">--Choose a Type--</option>
+            </select>
+            <br>
+            
+            <div id="newTypeDiv" style="display: none;">
+                <label class="key_label">New Type Name:</label>
+                <input id="txtNewType" type="text" autocomplete="off">
+                <br>
+            </div>
+            
+            <div class="centered-buttons">
+                <button class="cancel">Cancel</button>
+                <button id="btnProcessDocumentSetup" class="btnOK" onclick="processDocumentSetup()">Continue to Editor</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
