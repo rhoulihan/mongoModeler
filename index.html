@@ -100,31 +100,85 @@
         <div tabindex="-1">
             <!-- About/Introduction Section -->
             <div tabindex="-1" id="aboutDiv" style="padding:0px 250px 20px 250px">
-                <h3 tabindex="-1">Introduction</h3>
-                <p>Welcome to the MongoDB Index Modeler. This utility creates a data model with one or more virtual Collections, allowing users to visualize how relational data might be stored and indexed in MongoDB in order to help design efficient schema for their applications.</p>
+                <h1 tabindex="-1">MongoDB Index Modeler</h1>
+                
+                <h2 tabindex="-1">Introduction</h2>
+                <p>The MongoDB Index Modeler is a browser-based tool for designing and visualizing MongoDB data structures. It helps you create document-oriented data models, define schemas, and experiment with different indexing strategies. The tool runs entirely in your browser, storing data locally in memory for rapid prototyping without requiring server infrastructure.</p>
 
-                <p>The data displayed by the MongoDB Index Modeler is stored locally in memory, allowing complex data models to be constructed and visualized without requiring software to be installed locally or infrastructure to be deployed in the cloud. Unlike other tools for visualizing data, the MongoDB Index Modeler is designed specifically to model NoSQL data and does not assume that the items being displayed are homogenous in nature. Virtual Collection may contain many types of items as a single aggregated view representing a MongoDB data model.</p>
+                <h2 tabindex="-1">Key Concepts</h2>
+                
+                <h3 tabindex="-1">Document Types</h3>
+                <p>Each document must have a "type" attribute that defines its schema. When you set a document's type, the Index Modeler automatically adds all attributes associated with that type.</p>
+                
+                <h3 tabindex="-1">Indexes</h3>
+                <p>The primary view displays documents sorted by their "_id" field. Additional indexes can be created to visualize how documents would be organized with different access patterns.</p>
+                
+                <h3 tabindex="-1">Array Expansion</h3>
+                <p>When an index includes an array field, MongoDB creates an index entry for each array element. The Index Modeler visualizes this expansion to help understand multi-key index behavior.</p>
+                
+                <h3 tabindex="-1">Value Templates</h3>
+                <p>Value templates allow for dynamic generation of field values based on other fields in the document. Use <code>${fieldName}</code> syntax to reference other fields.</p>
 
-                <h3 tabindex="-1">Getting Started</h3>
-                <p>To get started with a new model, click the 'menu' link in the upper right corner of the page and select 'Create Model' from the slide out menu which will then appear on the left side of the screen. To import an existing model use the 'Load Model' option. When 'Create Model' is selected you will be prompted to provide a Model Name, Author and Description and then asked to define the first Collection in the Data Model. When a new Collection is defined, the MongoDB Index Modeler will build an empty Collection with a single Document that looks similar to the following image:</p>
-                <br>
-                <img class="img" src="img/newTable.png"><br>
-                <p>This view represents the default index on the '_id' attribute. All documents in this view will be sorted by this value. When a new Model is defined, the MongoDB Index Modeler will initially display an empty Collection with a single Document identified as '~new~', Click the <img style="display:inline; width:15px; height:15px;" src="img/edit.png"> in the '_id' cell of the document you wish to edit or simply change the values in the wide column view if you want to set one of the top level document attributes with a String value.</p>
-                <br>
-                <p>The "type' attribute is mandatory for all Documents as it is used to identify which attributes should be associated with a new Document. When you set the 'type' attribute of a document, the Index Modeler will check to see if other Documents of this type already exist in the Model and if they do then the associated attributes for that Document Type will be automatically appended.</p>
-                <br>
-                <p>To add new Documents to the model click the <img style="display:inline; width:15px; height:15px;" src="./img/add.png"> button in the lower right corner of the cell labeled 'Index Keys' located in the table header.</p>
-                <br>
-                <p>To add an Index to the model click the <img style="display:inline; width:15px; height:15px;" src="./img/add.png"> button in the upper right corner of the tab labeled with your Collection Name located at the top left of the table. On the form you will need to provide a comma separated list of attributes to be indexed and a name for the Index to be created. The MongoDB Index Modeler supports indexing of both nested Document attributes and Multi-key (Array) values. Here is a <a href="./data/sample.json">sample model</a> for a simple Adjacency List which demonstrates this feature:</p>
-                <br>
+                <h2 tabindex="-1">Getting Started</h2>
+                
+                <h3 tabindex="-1">1. Create a Model</h3>
+                <ul>
+                    <li>Click the "☰ menu" button in the top-right corner</li>
+                    <li>Select "Create Model" from the dropdown</li>
+                    <li>Enter a Name, Author, and Description for your model</li>
+                    <li>Provide a name for your first Collection</li>
+                    <li>Click "Create"</li>
+                </ul>
+                
+                <h3 tabindex="-1">2. Working with Documents</h3>
+                <ul>
+                    <li><strong>Add a Document</strong>: Click the "+" button in the "Index Keys" cell header</li>
+                    <li><strong>Edit Document ID</strong>: Click the "_id" cell and enter a unique identifier</li>
+                    <li><strong>Set Document Type</strong>: Click the "type" cell and enter a type name</li>
+                    <li><strong>Add Attributes</strong>: Right-click and select "Add Attribute" or click the existing "~new~" attribute cell</li>
+                    <li><strong>Edit Complete Document</strong>: Click the pencil icon <img style="display:inline; width:15px; height:15px;" src="./img/edit.png"> next to a document ID to open the JSON editor</li>
+                </ul>
+                
+                <h3 tabindex="-1">3. Creating Indexes</h3>
+                <ul>
+                    <li>Click the "+" button <img style="display:inline; width:15px; height:15px;" src="./img/add.png"> in the upper-right corner of the collection tab</li>
+                    <li>Enter a comma-separated list of attributes to index</li>
+                    <li>Provide a name for your index</li>
+                    <li>The new index will appear as a tab above the table view</li>
+                </ul>
+                
+                <h3 tabindex="-1">4. Editing Document Values</h3>
+                <ul>
+                    <li><strong>Simple Values</strong>: Click on any cell to edit its value directly</li>
+                    <li><strong>Complex Values</strong>: Click the pencil icon or the "{...}" cell for nested objects or arrays</li>
+                    <li><strong>Value Templates</strong>: Right-click on an attribute cell and select "Edit Value Template"</li>
+                    <li><strong>Generate Values</strong>: Right-click on a cell and use the "Generate Value" options</li>
+                </ul>
+                
+                <h3 tabindex="-1">5. Common Operations</h3>
+                <ul>
+                    <li><strong>Undo Changes</strong>: Click the "↩" button <img style="display:inline; width:15px; height:15px;" src="./img/back.png"> at the top of the "Attributes" column</li>
+                    <li><strong>Delete Document</strong>: Click the trash icon <img style="display:inline; width:15px; height:15px;" src="./img/delete.png"> next to a document ID</li>
+                    <li><strong>Clone Attributes</strong>: In the JSON editor, right-click and select "Clone Attributes" to copy attributes from another document</li>
+                    <li><strong>Toggle View</strong>: Switch between value and schema views to see different perspectives</li>
+                </ul>
+
+                <h2 tabindex="-1">Tips & Advanced Features</h2>
+                <ul>
+                    <li>Use <strong>context menus</strong> (right-click) for quick access to document operations</li>
+                    <li><strong>Value Templates</strong> can be used to automatically generate values based on other fields (e.g., <code>${firstName} ${lastName}</code>)</li>
+                    <li><strong>Array Fields</strong> in indexes will expand to show how MongoDB creates separate index entries for each array element</li>
+                    <li>For complex hierarchical data, use <strong>nested documents</strong> and <strong>dot notation</strong> in index definitions</li>
+                    <li>Export your model to a file for later use or sharing with teammates</li>
+                </ul>
+
+                <h2 tabindex="-1">Sample Models</h2>
+                <p>To see a demonstration of the tool in action, you can view <a href="./data/sample.json">this sample model</a> of an adjacency list, which illustrates multi-key indexes and document relationships:</p>
+                
                 <div style="text-align: center;">
-                    <img class="img-block" src="./img/model.png">
-                    <img class="img-block" src="./img/model1.png">
+                    <img class="img-block" src="./img/model.png" alt="Sample model screenshot">
+                    <img class="img-block" src="./img/model1.png" alt="Sample model index view screenshot">
                 </div>
-                <br>
-                <p>This tool is a work in progress and there are probably a few bugs that have not been identified. If something unexpected happens you can undo a change by clicking the <img style="display:inline; width:15px; height:15px;" src="./img/back.png"> button on the right side of the 'Attributes' cell in the table header.</p>
-                <br>
-                <p>Additional functionality and documentation will be added over time.</p>
             </div>
         </div>
     </div>
@@ -483,7 +537,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Document Setup Dialog -->
     <div id="documentSetupModal" class="modal">
         <div style="width: 500px;" class="modal-content">
